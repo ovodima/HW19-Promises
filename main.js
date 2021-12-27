@@ -32,30 +32,13 @@ getUserInfo().then((data) => getUserAvatar(data)).then(data => getUserAdditional
 ////////////////////////////////////////////////////
 
 new Promise(function(resolve, reject) {
-    setTimeout(() => {
-        resolve({ name: 'Vic', age: 21, id: 1 } )
-        reject(console.log('Reject Error'))
-
-        if(resolve) {
-            console.log(resolve())
-        } else {
-            reject()
-        }
-    }, 1000);
+    setTimeout(() => resolve({ name: 'Vic', age: 21, id: 1 } ), 1000);
   })
     .then(function(userInfo) {
       return new Promise(function(resolve, reject) {
-          userInfo = 'Footbal'
-        setTimeout(() => {
-            reject(new Error('wrong data') )
-            resolve(console.log('Worked Resolve'))
-
-            if(userInfo) {
-                resolve()
-            } else {
-                reject()
-            }
-        }, 1000); 
+        setTimeout(() => reject(new Error('wrong data') ), 1000);
       });
     })
-
+ .catch(() => {
+     console.error('Error Catch')
+ })
