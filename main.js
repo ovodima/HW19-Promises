@@ -1,3 +1,4 @@
+/////////////////1////////////////////
 function delay(ms) {
    return new Promise(function(resolve, reject) {
         return setInterval(() => resolve(), ms)
@@ -5,7 +6,7 @@ function delay(ms) {
 }
 delay(1000).then(() => console.log("Hello!"))
 
-//////////////////////////////////////////////////////
+////////////////////////2//////////////////////////////
 
 function getUserInfo() {
     return new Promise(function(resolve, reject) {
@@ -29,7 +30,7 @@ function getUserAdditionalInfo(userInfo) {
 }
 
 getUserInfo().then((data) => getUserAvatar(data)).then(data => getUserAdditionalInfo(data)).then(data => console.log(data))
-////////////////////////////////////////////////////
+////////////////////////3////////////////////////////
 
 new Promise(function(resolve, reject) {
     setTimeout(() => resolve({ name: 'Vic', age: 21, id: 1 } ), 1000);
@@ -40,5 +41,5 @@ new Promise(function(resolve, reject) {
       });
     })
  .catch(() => {
-     console.error('Error Catch')
+     console.error('Error')
  })
