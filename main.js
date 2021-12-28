@@ -29,7 +29,10 @@ function getUserAdditionalInfo(userInfo) {
     });
 }
 
-getUserInfo().then((data) => getUserAvatar(data)).then(data => getUserAdditionalInfo(data)).then(data => console.log(data))
+getUserInfo()
+.then((data) => getUserAvatar(data))
+.then(data => getUserAdditionalInfo(data))
+.then(data => console.log(data))
 ////////////////////////3////////////////////////////
 
 new Promise(function(resolve, reject) {
@@ -40,6 +43,6 @@ new Promise(function(resolve, reject) {
         setTimeout(() => reject(new Error('wrong data') ), 1000);
       });
     })
- .catch(() => {
-     console.error('Error')
+ .catch((err) => {
+     console.error(err)
  })
